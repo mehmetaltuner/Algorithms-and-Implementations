@@ -31,10 +31,9 @@ void dfs(int n){
 	low[n] = idx[n] = ++cur_time;
 	comp.push(n);
 	in_stack[n] = 1;
-
+	visited[n] = 1;
 	for(int chi: adj[n]){
 		if(!visited[chi]){
-			visited[chi] = 1;
 			dfs(chi);
 			low[n] = min(low[n], low[chi]);
 		}else if(in_stack[chi]){
